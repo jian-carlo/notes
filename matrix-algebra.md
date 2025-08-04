@@ -1,8 +1,7 @@
-# Matrix Algebra
+% Matrix Algebra
 
-## Matrices
-
-### Definition of Matrices
+# Matrices
+## Definition of Matrices
 
 **Matrices** are a rectangular array of numbers, symbols, and/or expressions. Their
 dimensions are represented by $m \times n$ where $m$ is the number of rows and
@@ -44,7 +43,7 @@ $$ \rm{E} = \begin{pmatrix}
 0 & 0 & 1 & 0
 \end{pmatrix} $$
 
-### Adding and Multiplying Matrices
+## Adding and Multiplying Matrices
 
 **Adding** matrices is as easy as [@eq:add_mat]. The addends need to have the
 same dimensions.
@@ -106,7 +105,7 @@ $$ \begin{align}
 \sum_{k=1}^{n} \sum_{l=1}^{p} a_{lk}b_{kl}c_{lj} &= \sum_{l=1}^{p} \sum_{k=1}^{n} a_{ik}b_{kl}c_{lj}
 \end{align} $$
 
-### Special Matrices
+## Special Matrices
 
 * *Zero Matrix*: $m \times n$
 
@@ -154,7 +153,7 @@ b & c & 0 \\
 d & e & f
 \end{pmatrix} $$
 
-### Matrix Transpose
+## Matrix Transpose
 
 \newcommand{\tr}[1]{#1^{\rm{T}}}
 
@@ -234,7 +233,7 @@ The resulting matrix of $\tr{\rm{A}}\rm{A}$ is symmetrical, as proven in
 
 $$ \tr{\left[\tr{\rm{A}}\rm{A}\right]} = \tr{\rm{A}}\rm{A} $$ {#eq:sym_trans}
 
-### Inner & Outer Products
+## Inner & Outer Products
 
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\trace}[1]{\rm{Tr}\,#1}
@@ -325,7 +324,7 @@ $$ \begin{align}
 &=\sum_{j=1}^{n} \sum_{k=1}^{m} a^2_{kj}
 \end{align} $$ {#eq:proof_trace}
 
-### Matrix Inverse
+## Matrix Inverse
 
 \newcommand{\det}[1]{\rm{det} #1}
 
@@ -341,7 +340,7 @@ $$ (\rm{AB})^{-1} = \rm{A}^{-1}\rm{B}^{-1} $$ {#eq:distributive_inverse}
 $$ \begin{align}
 (\rm{AB})(\rm{B}^{-1}\rm{A}^{-1}) &= \rm{I}\\
 (\rm{B}\rm{B}^{-1})(\rm{A}\rm{A}^{-1}) &= \rm{I}\\
-\rm{I}\rm{I} &= \rm{I}
+\rm{I}\,\rm{I} &= \rm{I}
 \end{align} $$
 $$ (\tr{\rm{A}})^{-1} = \tr{(\rm{A}^{-1})} $$ {#eq:inverse_transpose}
 $$ \begin{align}
@@ -402,8 +401,75 @@ $$ \det{\rm{A}} = ad - bc $$ {#eq:determinant}
 
 $$ \text{If det A}= 0,\,\text{then}\, \rm{A}^{-1} \,\text{does not exist.} $$
 
-## Systems of Linear Equations
-## Vector Spaces
-## Eigenvalues and Eigenvectors
-## References
+## Orthogonal Matrices
+
+The inverse of an orthogonal matrix is equal to its transpose.
+
+$$ \begin{gather}
+\rm{Q}^{-1} = {\rm{Q}}\\
+\tr{\rm{Q}}\rm{Q} = \rm{Q}\tr{\rm{Q}} = I\\
+\end{gather} $$
+
+The rows and rows, and columns and columns are orthonormal to each other.
+
+The orthogonal matrix preserves the norm/lengths of a vector.
+
+$$ \begin{align}
+\norm{Q x}^2 &= \tr{(\rm{Q}\rm{x})} (\rm{Q}\rm{x})\\
+&= \tr{\rm{x}}\tr{\rm{Q}} \rm{Q}\rm{x} \\
+\norm{x}^2 &= \tr{\rm{x}}\rm{x}\\
+\end{align} $$
+
+The product of two orthogonal matrices is itself an orthogonal matrix.
+
+$$ \begin{align}
+\rm{Q}\rm{R} &= \rm{S}\\
+\tr{(\rm{Q}\rm{R})} &= \tr{\rm{S}}\\
+\rm{Q}\rm{R}\tr{\rm{R}}\tr{\rm{Q}} &= \tr{\rm{S}}\rm{S} = \rm{I}\\
+\tr{\rm{S}}\rm{S} &= I
+\end{align} $$
+
+### Rotation Matrices
+
+Suppose a vector, $v$, with elements $x$ and $y$ has an angle of $\phi$ above
+the x-axis. It is to be rotated such that it is at an angle of $\theta$ above
+its initial angle. Its new elements are now $x'$ and $y'$ but it still has a
+length of $\norm{v}=r$. It is represented symbolically as in
+[@eq:vector_rotation]
+
+$$ \rm{R}_\theta \begin{pmatrix}
+x\\
+y\\
+\end{pmatrix} = \begin{pmatrix}
+x'\\
+y'\\
+\end{pmatrix}$$ {#eq:vector_rotation}
+
+The derivation for $\rm{R}_\theta$ can be achieved by using some trigonometric
+identities.
+
+$$ \begin{align}
+x' &= r \cos{(\phi + \theta)}\\
+   &= (r\cos{\phi})\cos{\theta} - (r\sin{\theta})\sin{\theta}\\
+   &= \cos{\theta}x - \sin{\theta}y\\
+y' &= r \sin{(\phi + \theta)}\\
+   &= (r\sin{\phi})\cos{\theta} + (r\cos{\phi})\sin{\phi}\\
+   &= \cos{\theta}y + \sin{\phi}x 
+\end{align}$$
+
+$$\begin{pmatrix}
+\cos{\theta} & -\sin{\theta}\\
+\sin{\theta} & \cos{\theta}\\
+\end{pmatrix} \begin{pmatrix}
+x\\
+y\\
+\end{pmatrix} = \begin{pmatrix}
+x'\\
+y'\\
+\end{pmatrix}$$
+
+# Systems of Linear Equations
+# Vector Spaces
+# Eigenvalues and Eigenvectors
+# References
 Coursera: *Matrix Algebra for Engineers*. Chasnov
