@@ -1,0 +1,592 @@
+<!doctype html>
+<html >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/ryangrose/easy-pandoc-templates@948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <title>Matrix Algebra</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">Matrix Algebra</span>
+        <ul class="nav pull-right doc-info">
+                            </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#matrices" id="toc-matrices">Matrices</a>
+        <ul>
+        <li><a href="#definition-of-matrices"
+        id="toc-definition-of-matrices">Definition of Matrices</a></li>
+        <li><a href="#adding-and-multiplying-matrices"
+        id="toc-adding-and-multiplying-matrices">Adding and Multiplying
+        Matrices</a></li>
+        <li><a href="#special-matrices"
+        id="toc-special-matrices">Special Matrices</a></li>
+        <li><a href="#matrix-transpose" id="toc-matrix-transpose">Matrix
+        Transpose</a></li>
+        <li><a href="#inner-outer-products"
+        id="toc-inner-outer-products">Inner &amp; Outer
+        Products</a></li>
+        <li><a href="#matrix-inverse" id="toc-matrix-inverse">Matrix
+        Inverse</a></li>
+        <li><a href="#orthogonal-matrices"
+        id="toc-orthogonal-matrices">Orthogonal Matrices</a>
+        <ul>
+        <li><a href="#rotation-matrices"
+        id="toc-rotation-matrices">Rotation Matrices</a></li>
+        </ul></li>
+        </ul></li>
+        <li><a href="#systems-of-linear-equations"
+        id="toc-systems-of-linear-equations">Systems of Linear
+        Equations</a></li>
+        <li><a href="#vector-spaces" id="toc-vector-spaces">Vector
+        Spaces</a></li>
+        <li><a href="#eigenvalues-and-eigenvectors"
+        id="toc-eigenvalues-and-eigenvectors">Eigenvalues and
+        Eigenvectors</a></li>
+        <li><a href="#references"
+        id="toc-references">References</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+
+      
+      <p><a href="index.html">to index</a></p>
+<h1 id="matrices">Matrices</h1>
+<h2 id="definition-of-matrices">Definition of Matrices</h2>
+<p><strong>Matrices</strong> are a rectangular array of numbers,
+symbols, and/or expressions. Their dimensions are represented by <span
+class="math inline">\(m \times n\)</span> where <span
+class="math inline">\(m\)</span> is the number of rows and <span
+class="math inline">\(n\)</span> is the number of columns. Eq 1 is a
+matrix of dimensions <span class="math inline">\(m \times
+n\)</span>.</p>
+<p><span id="eq:mat_def"><span class="math display">\[ \rm{A} =
+\begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn}
+\end{pmatrix} \qquad{(1)}\]</span></span></p>
+<p><strong>Vectors</strong> are matrices that have either <span
+class="math inline">\(m\)</span> or <span
+class="math inline">\(n\)</span> equal to <span
+class="math inline">\(1\)</span>. They can either be a row matrix (<span
+class="math inline">\(m=1\)</span>) or a column matrix (<span
+class="math inline">\(n=1\)</span>).</p>
+<p><span class="math display">\[ \rm{B} = \begin{pmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_m
+\end{pmatrix} \]</span></p>
+<p><span class="math display">\[ \rm{C} = \begin{pmatrix}
+c_1 &amp; c_2 &amp; \dots &amp; c_n
+\end{pmatrix} \]</span></p>
+<p>In a <strong>diagonal matrix</strong>, the diagonal elements are
+nonzero while all other elements are zero.</p>
+<p><span class="math display">\[ \rm{D} = \begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{pmatrix} \]</span></p>
+<p><span class="math display">\[ \rm{E} = \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{pmatrix} \]</span></p>
+<h2 id="adding-and-multiplying-matrices">Adding and Multiplying
+Matrices</h2>
+<p><strong>Adding</strong> matrices is as easy as Eq 2. The addends need
+to have the same dimensions.</p>
+<p><span id="eq:add_mat"><span class="math display">\[ \begin{pmatrix}
+a &amp; b \\
+c &amp; d
+\end{pmatrix} +
+\begin{pmatrix}
+e &amp; f \\
+g &amp; h
+\end{pmatrix} =
+\begin{pmatrix}
+a+e &amp; b+f \\
+c+g &amp; d+h
+\end{pmatrix}\qquad{(2)}\]</span></span></p>
+<p>Matrices can be multiplied by a <strong>scalar</strong>.</p>
+<p><span class="math display">\[ k \begin{pmatrix}
+a &amp; b \\
+c &amp; d
+\end{pmatrix} =
+\begin{pmatrix}
+ka &amp; kb \\
+kc &amp; kd
+\end{pmatrix}\]</span></p>
+<p><strong>Multiplying</strong> two matrices are a bit complicated. In
+fact, only the combination of <span class="math inline">\((m \times n)(n
+\times p)\)</span> is possible and the dimensions of the product is
+<span class="math inline">\((m \times p)\)</span>. The rows of the first
+matrix and the columns of the second matrix each multiplied and the
+products are added.</p>
+<p><span id="eq:prod_mat"><span class="math display">\[ \begin{pmatrix}
+a &amp; b \\
+c &amp; d
+\end{pmatrix}
+\begin{pmatrix}
+e &amp; f \\
+g &amp; h
+\end{pmatrix} =
+\begin{pmatrix}
+ae + bg &amp; af + bh \\
+ce + dg &amp; cf + dh
+\end{pmatrix}\qquad{(3)}\]</span></span></p>
+<p>A general formula for an element of the matrix <span
+class="math inline">\(C\)</span>, where <span
+class="math inline">\(C=AB\)</span>, is</p>
+<p><span id="eq:prod_elem"><span class="math display">\[ c_{ij} =
+\sum_{k=1}^n a_{ik}b_{kj} \qquad{(4)}\]</span></span></p>
+<p>To prove <span class="math inline">\(\rm{A(BC)=(AB)C}\)</span>, where
+<span class="math inline">\(\rm{A}\)</span> is an <span
+class="math inline">\(m \times n\)</span> matrix, <span
+class="math inline">\(\rm{B}\)</span> is an <span
+class="math inline">\(n \times p\)</span> matrix and <span
+class="math inline">\(\rm{C}\)</span> is an <span
+class="math inline">\(p \times q\)</span> matrix; we utilize Eq 4.
+Therefore matrix multiplication is associative.</p>
+<p><span class="math display">\[ \begin{align}
+\rm{A(BC)} &amp;= \rm{(AB)C} \\
+[\rm{A(BC)}]_{ij} &amp;= [\rm{(AB)C}]_{ij} \\
+\sum_{k=1}^{n} a_{ik} [\rm{BC}]_{kj} &amp;= \sum_{l=1}^{p}
+\rm{[AB]}_{il} c_{lj} \\
+\sum_{k=1}^{n} \sum_{l=1}^{p} a_{lk}b_{kl}c_{lj} &amp;= \sum_{l=1}^{p}
+\sum_{k=1}^{n} a_{ik}b_{kl}c_{lj}
+\end{align} \]</span></p>
+<h2 id="special-matrices">Special Matrices</h2>
+<ul>
+<li><em>Zero Matrix</em>: <span class="math inline">\(m \times
+n\)</span></li>
+</ul>
+<p><span class="math display">\[ 0 = \begin{pmatrix}
+0 &amp; 0 \\
+0 &amp; 0
+\end{pmatrix} \]</span></p>
+<ul>
+<li><em>Identity Matrix</em>: <span class="math inline">\(n \times
+n\)</span></li>
+</ul>
+<p><span class="math display">\[ I = \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix} \]</span></p>
+<p><span class="math display">\[ AI = A = IA \]</span></p>
+<ul>
+<li><em>Diagonal Matrix</em></li>
+</ul>
+<p><span class="math display">\[ D = \begin{pmatrix}
+d_1 &amp; 0 &amp; 0 \\
+0 &amp; d_2 &amp; 0 \\
+0 &amp; 0 &amp; d_3
+\end{pmatrix} \]</span></p>
+<ul>
+<li><em>Banded Matrix</em>, e.g. tridiagonal</li>
+</ul>
+<p><span class="math display">\[ \begin{pmatrix}
+d_1 &amp; a_1 &amp; 0 \\
+b_1 &amp; d_2 &amp; a_2 \\
+0 &amp; b_2 &amp; d_3
+\end{pmatrix} \]</span></p>
+<ul>
+<li><em>Upper and Lower Triangular Matrices</em></li>
+</ul>
+<p><span class="math display">\[ U = \begin{pmatrix}
+a &amp; b &amp; c \\
+0 &amp; d &amp; e \\
+0 &amp; 0 &amp; f
+\end{pmatrix} \]</span></p>
+<p><span class="math display">\[ L = \begin{pmatrix}
+a &amp; 0 &amp; 0 \\
+b &amp; c &amp; 0 \\
+d &amp; e &amp; f
+\end{pmatrix} \]</span></p>
+<h2 id="matrix-transpose">Matrix Transpose</h2>
+<p>The transpose of a matrix is its reflection about the diagonal. If a
+matrix has dimensions <span class="math inline">\(m \times n\)</span>
+then its transpose should have dimensions of <span
+class="math inline">\(n \times m\)</span>. A general representation of a
+transpose is shown in Eq 5. An example is shown in Eq 6.</p>
+<p><span id="eq:mat_trans"><span class="math display">\[ \rm{A} =
+\begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn}
+\end{pmatrix} \qquad \rm{A}^{\rm{T}} = \begin{pmatrix}
+a_{11} &amp; a_{21} &amp; \dots &amp; a_{m1} \\
+a_{12} &amp; a_{22} &amp; \dots &amp; a_{m2} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{1n} &amp; a_{2n} &amp; \dots &amp; a_{mn}
+\end{pmatrix} \qquad{(5)}\]</span></span></p>
+<p><span id="eq:trans_example"><span class="math display">\[
+\begin{pmatrix}
+a &amp; b &amp; c \\
+d &amp; e &amp; f
+\end{pmatrix}^{\rm{T}} = \begin{pmatrix}
+a &amp; d \\
+b &amp; e \\
+c &amp; f
+\end{pmatrix} \qquad{(6)}\]</span></span></p>
+<p>Obvious but rather useful equations can arise from this:</p>
+<p><span id="eq:trans_elem"><span class="math display">\[
+a^{\rm{T}}_{ij} = a_{ji} \qquad{(7)}\]</span></span></p>
+<p><span id="eq:trans_trans"><span class="math display">\[
+(\rm{A}^{\rm{T}})^{\rm{T}} = \rm{A} \qquad{(8)}\]</span></span></p>
+<p><span id="eq:trans_sum"><span class="math display">\[ (\rm{A} +
+\rm{B})^{\rm{T}} = \rm{A}^{\rm{T}} + \rm{B}^{\rm{T}}
+\qquad{(9)}\]</span></span></p>
+<p>A not so obvious fact is the transpose of the product of two matrices
+which is given by Eq 10 which is proven subsequently in Eq 11.</p>
+<p><span id="eq:trans_prod"><span class="math display">\[
+(\rm{AB})^{\rm{T}} = \rm{B}^{\rm{T}}\rm{A}^{\rm{T}}
+\qquad{(10)}\]</span></span></p>
+<p><span id="eq:trans_prod_proof"><span class="math display">\[
+\begin{align}
+\left[(\rm{AB})^{\rm{T}}\right]_{ij} &amp;=
+\left[\rm{B}^{\rm{T}}\rm{A}^{\rm{T}}\right]_{ij} \\
+[\rm{AB}]_{ji} &amp;= \sum_{k=1}^{p} b^{\rm{T}}_{ik}a^{\rm{T}}_{kj} \\
+\sum_{k=1}^{p} a_{jk}b_{ki} &amp;= \sum_{k=1}^{p} a_{jk}b_{ki}
+\end{align} \qquad{(11)}\]</span></span></p>
+<p>Any square matrix, <span class="math inline">\(\rm{A}\)</span> can be
+expressed as the sum of a symmetric and a skew-symmetric matrix as shown
+in Eq 12.</p>
+<p><span id="eq:square_trans"><span class="math display">\[
+\begin{gather}
+\rm{A} = \begin{pmatrix}
+a &amp; b &amp; c\\
+d &amp; e &amp; f\\
+g &amp; h &amp; i\\
+\end{pmatrix} \qquad \rm{A}^{\rm{T}} = \begin{pmatrix}
+a &amp; d &amp; g\\
+b &amp; e &amp; h\\
+c &amp; f &amp; i\\
+\end{pmatrix} \\
+\rm{A} + \rm{A}^{\rm{T}} = \begin{pmatrix}
+2a &amp; b+d &amp; c+g\\
+b+d &amp; 2e &amp; f+h\\
+c+g &amp; f+h &amp; 2i\\
+\end{pmatrix}\\
+\rm{A} - \rm{A}^{\rm{T}} = \begin{pmatrix}
+0 &amp; b-d &amp; c-g\\
+d-b &amp; 0 &amp; f-h\\
+g-c &amp; h-f &amp; 0\\
+\end{pmatrix}\\
+\rm{A} = \frac{1}{2} \left(\rm{A} + \rm{A}^{\rm{T}} + \rm{A} -
+\rm{A}^{\rm{T}}\right)
+\end{gather} \qquad{(12)}\]</span></span></p>
+<p>The resulting matrix of <span
+class="math inline">\(\rm{A}^{\rm{T}}\rm{A}\)</span> is symmetrical, as
+proven in Eq 13 since <span class="math inline">\([AB]^{\rm{T}} =
+B^{\rm{T}} A^{\rm{T}}\)</span> and that <span
+class="math inline">\((A^{\rm{T}})^{\rm{T}} = A\)</span>.</p>
+<p><span id="eq:sym_trans"><span class="math display">\[
+\left[\rm{A}^{\rm{T}}\rm{A}\right]^{\rm{T}} = \rm{A}^{\rm{T}}\rm{A}
+\qquad{(13)}\]</span></span></p>
+<h2 id="inner-outer-products">Inner &amp; Outer Products</h2>
+<p>The <strong>inner product</strong> is also called as the <strong>dot
+product</strong>. It is represented in Eq 14. A concrete example is
+shown in Eq 15</p>
+<p><span id="eq:inner_prod"><span class="math display">\[ \rm{u} \cdot
+\rm{v} = \rm{u}^{\rm{T}}\rm{v} \qquad{(14)}\]</span></span></p>
+<p><span class="math display">\[ \rm{u} = \begin{pmatrix}
+u_1\\
+u_2\\
+u_3\\
+\end{pmatrix} \qquad \rm{v} = \begin{pmatrix}
+v_1\\
+v_2\\
+v_3\\
+\end{pmatrix} \]</span> <span id="eq:inner_prod_eg"><span
+class="math display">\[ \rm{u}^{\rm{T}}v = \begin{pmatrix}
+u_1 &amp; u_2 &amp; u_3\\
+\end{pmatrix} \begin{pmatrix}
+v_1\\
+v_2\\
+v_3\\
+\end{pmatrix} = u_1v_1 + u_2v_2 + u_3v_3
+\qquad{(15)}\]</span></span></p>
+<p>If the inner product of two vectors are equal to zero, then the two
+vectors are said to be <strong>orthogonal</strong>.</p>
+<p><span id="eq:orthogonal"><span class="math display">\[
+\rm{u}^{\rm{T}}\rm{v} = 0 \qquad{(16)}\]</span></span></p>
+<p>The <strong>norm</strong> of a vector is written as in Eq 17, it is
+the length of the vector; a concrete example is shown in Eq 18. It is
+said that the vector <span class="math inline">\(\rm{u}\)</span> is
+<strong>normalized</strong> if <span class="math inline">\(\left\lVert
+\rm{u} \right\rVert= 1\)</span>. If two vectors are orthogonal and they
+are normalized, then they are said to be
+<strong>orthonormal</strong>.</p>
+<p><span id="eq:norm"><span class="math display">\[ \left\lVert \rm{u}
+\right\rVert = \sqrt{\rm{u}^{\rm{T}}\rm{u}}
+\qquad{(17)}\]</span></span></p>
+<p><span id="eq:norm_eg"><span class="math display">\[ \left\lVert
+\rm{u} \right\rVert = \sqrt{u_1^2 + u_2^2 + u_3^2}
+\qquad{(18)}\]</span></span></p>
+<p>The <strong>outer product</strong> is the counterpart of the inner
+product. It is shown in Eq 19. A concrete example is shown in Eq 20.</p>
+<p><span id="eq:outer_prod"><span class="math display">\[ \rm{u} \otimes
+\rm{v} = \rm{u}\rm{v}^{\rm{T}} \qquad{(19)}\]</span></span></p>
+<p><span id="eq:outer_prod_eg"><span class="math display">\[
+\rm{u}\rm{v}^{\rm{T}} = \begin{pmatrix}
+u_1\\
+u_2\\
+u_3\\
+\end{pmatrix} \begin{pmatrix}
+v_1 &amp; v_2 &amp; v_3\\
+\end{pmatrix} = \begin{pmatrix}
+u_1v_1 &amp; u_1v_2 &amp; u_1v_3\\
+u_2v_1 &amp; u_2v_2 &amp; u_2v_3\\
+u_3v_1 &amp; u_3v_2 &amp; u_3v_3\\
+\end{pmatrix} \qquad{(20)}\]</span></span></p>
+<p>Let <span class="math inline">\(\rm{A}\)</span> be a rectangular
+matrix given by</p>
+<p><span class="math display">\[ \rm{A} = \begin{pmatrix}
+a &amp; d\\
+b &amp; e\\
+c &amp; f\\
+\end{pmatrix} \]</span></p>
+<p>Calculating <span class="math inline">\(\rm{A}^{\rm{T}}A\)</span>
+yields a symmetrical matrix in which the sum of the diagonal elements is
+the sum of the squares of the elements of <span
+class="math inline">\(\rm{A}\)</span>.</p>
+<p><span class="math display">\[ \begin{pmatrix}
+a &amp; b &amp; c\\
+d &amp; e &amp; f\\
+\end{pmatrix} \begin{pmatrix}
+a &amp; d\\
+b &amp; e\\
+c &amp; f\\
+\end{pmatrix} = \begin{pmatrix}
+a^2 + b^2 + c^2 &amp; ad + be + cf\\
+ad + be + cf &amp; d^2 + e^2 + f^2\\
+\end{pmatrix} \]</span></p>
+<p>The sum of the diagonal elements of matrix <span
+class="math inline">\(\rm{B}\)</span> is the <strong>Trace</strong> of
+<span class="math inline">\(\rm{B}\)</span> written as <span
+class="math inline">\(\rm{Tr}\,\rm{B}\)</span>. Eq 21 shows that the sum
+of the diagonals of <span
+class="math inline">\(\rm{A}^{\rm{T}}\rm{A}\)</span> is the same as the
+sum of the squares of the matrix <span
+class="math inline">\(\rm{A}\)</span> with dimensions <span
+class="math inline">\(m \times n\)</span>.</p>
+<p><span id="eq:proof_trace"><span class="math display">\[ \begin{align}
+\rm{Tr}\,(\rm{A}^{\rm{T}}\rm{A}) &amp;= \sum_{j=1}^{n}
+(\rm{A}^{\rm{T}}\rm{A})_{jj} \\
+&amp;=\sum_{j=1}^{n} \sum_{k=1}^{m} a^{\rm{T}}_{jk}a_{kj} \\
+&amp;=\sum_{j=1}^{n} \sum_{k=1}^{m} a^2_{kj}
+\end{align} \qquad{(21)}\]</span></span></p>
+<h2 id="matrix-inverse">Matrix Inverse</h2>
+<p>Not all matrices are invertible. If <span
+class="math inline">\(\rm{A}\)</span> is invertible, then it’s inverse
+is written as <span class="math inline">\(\rm{A}^{-1}\)</span>. Any
+matrix multiplied by its inverse is equal to the identity matrix similar
+to the normal reciprocal identity as shown in Eq 22.</p>
+<p><span id="eq:reciprocal"><span class="math display">\[
+\rm{A}\rm{A}^{-1} = \rm{A}^{-1}\rm{A} = \rm{I}
+\qquad{(22)}\]</span></span></p>
+<p>Some identities are shown below showing their respective proofs.</p>
+<p><span id="eq:distributive_inverse"><span class="math display">\[
+(\rm{AB})^{-1} = \rm{A}^{-1}\rm{B}^{-1} \qquad{(23)}\]</span></span>
+<span class="math display">\[ \begin{align}
+(\rm{AB})(\rm{B}^{-1}\rm{A}^{-1}) &amp;= \rm{I}\\
+(\rm{B}\rm{B}^{-1})(\rm{A}\rm{A}^{-1}) &amp;= \rm{I}\\
+\rm{I}\,\rm{I} &amp;= \rm{I}
+\end{align} \]</span> <span id="eq:inverse_transpose"><span
+class="math display">\[ (\rm{A}^{\rm{T}})^{-1} = (\rm{A}^{-1})^{\rm{T}}
+\qquad{(24)}\]</span></span> <span class="math display">\[ \begin{align}
+\rm{A}^{\rm{T}}(\rm{A}^{-1})^{\rm{T}} &amp;= \rm{I}\\
+(\rm{A}^{-1}\rm{A})^{\rm{T}} &amp;= \rm{I}\\
+\rm{I}^{\rm{T}} &amp;= \rm{I}
+\end{align} \]</span></p>
+<p>To express more concretely, the inverse of a general <span
+class="math inline">\(2 \times 2\)</span> matrix.</p>
+<p><span class="math display">\[ \begin{gather}
+\rm{A} = \begin{pmatrix}
+a &amp; b\\
+c &amp; d\\
+\end{pmatrix} \\
+\rm{A}\rm{A}^{-1} = I \\
+\begin{pmatrix}
+a &amp; b\\
+c &amp; d\\
+\end{pmatrix} \begin{pmatrix}
+x_1 &amp; x_2\\
+y_1 &amp; y_2\\
+\end{pmatrix} = \begin{pmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{pmatrix}
+\end{gather} \]</span></p>
+<p>By matrix multiplication, we can create 4 linear equations two of
+which are homogeneous and the others inhomogeneous. We can solve for
+<span class="math inline">\(y_1\)</span> and <span
+class="math inline">\(y_2\)</span> in terms of <span
+class="math inline">\(x_1\)</span> and <span
+class="math inline">\(x_2\)</span> respectively from the homogenous
+equations and solve for. Then we solve the elements of the inverse
+matrix from the inhomogenous equations.</p>
+<p><span class="math display">\[ \begin{gather}
+ax_1 + by_1 = 1 \\
+ax_2 + by_2 = 0 \\
+cx_1 + dy_1 = 0 \\
+cx_2 + dy_2 = 1 \\
+y_1 = -\frac{c}{d}x_1 \\
+y_2 = -\frac{a}{b}x_2 \\
+x_1 = \frac{d}{ad-bc} \\
+y_1 = \frac{-c}{ad-bc} \\
+x_2 = \frac{-b}{ad-bc} \\
+y_2 = \frac{a}{ad-bc} \\
+\end{gather} \]</span></p>
+<p>The inverse of a general <span class="math inline">\(2 \times
+2\)</span> matrix is therefore given by Eq 25. If the denominator of the
+scalar is <span class="math inline">\(0\)</span> then the inverse of
+<span class="math inline">\(\rm{A}\)</span> does not exist. This is
+called the <strong>determinant</strong> which is represented in
+Eq 26.</p>
+<p><span id="eq:2x2_inverse"><span class="math display">\[ \rm{A}^{-1} =
+\frac{1}{ad-bc}\begin{pmatrix}
+d &amp; -b\\
+-c &amp; a\\
+\end{pmatrix} \qquad{(25)}\]</span></span></p>
+<p><span id="eq:determinant"><span class="math display">\[ \rm{det}
+\rm{A} = ad - bc \qquad{(26)}\]</span></span></p>
+<p><span class="math display">\[ \text{If det A}= 0,\,\text{then}\,
+\rm{A}^{-1} \,\text{does not exist.} \]</span></p>
+<h2 id="orthogonal-matrices">Orthogonal Matrices</h2>
+<p>The inverse of an orthogonal matrix is equal to its transpose.</p>
+<p><span class="math display">\[ \begin{gather}
+\rm{Q}^{-1} = {\rm{Q}}\\
+\rm{Q}^{\rm{T}}\rm{Q} = \rm{Q}\rm{Q}^{\rm{T}} = I\\
+\end{gather} \]</span></p>
+<p>The rows and rows, and columns and columns are orthonormal to each
+other.</p>
+<p>The orthogonal matrix preserves the norm/lengths of a vector.</p>
+<p><span class="math display">\[ \begin{align}
+\left\lVert Q x \right\rVert^2 &amp;= (\rm{Q}\rm{x})^{\rm{T}}
+(\rm{Q}\rm{x})\\
+&amp;= \rm{x}^{\rm{T}}\rm{Q}^{\rm{T}} \rm{Q}\rm{x} \\
+\left\lVert x \right\rVert^2 &amp;= \rm{x}^{\rm{T}}\rm{x}\\
+\end{align} \]</span></p>
+<p>The product of two orthogonal matrices is itself an orthogonal
+matrix.</p>
+<p><span class="math display">\[ \begin{align}
+\rm{Q}\rm{R} &amp;= \rm{S}\\
+(\rm{Q}\rm{R})^{\rm{T}} &amp;= \rm{S}^{\rm{T}}\\
+\rm{Q}\rm{R}\rm{R}^{\rm{T}}\rm{Q}^{\rm{T}} &amp;= \rm{S}^{\rm{T}}\rm{S}
+= \rm{I}\\
+\rm{S}^{\rm{T}}\rm{S} &amp;= I
+\end{align} \]</span></p>
+<h3 id="rotation-matrices">Rotation Matrices</h3>
+<p>Suppose a vector, <span class="math inline">\(v\)</span>, with
+elements <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> has an angle of <span
+class="math inline">\(\phi\)</span> above the x-axis. It is to be
+rotated such that it is at an angle of <span
+class="math inline">\(\theta\)</span> above its initial angle. Its new
+elements are now <span class="math inline">\(x&#39;\)</span> and <span
+class="math inline">\(y&#39;\)</span> but it still has a length of <span
+class="math inline">\(\left\lVert v \right\rVert=r\)</span>. It is
+represented symbolically as in Eq 27</p>
+<p><span id="eq:vector_rotation"><span class="math display">\[
+\rm{R}_\theta \begin{pmatrix}
+x\\
+y\\
+\end{pmatrix} = \begin{pmatrix}
+x&#39;\\
+y&#39;\\
+\end{pmatrix}\qquad{(27)}\]</span></span></p>
+<p>The derivation for <span class="math inline">\(\rm{R}_\theta\)</span>
+can be achieved by using some trigonometric identities.</p>
+<p><span class="math display">\[ \begin{align}
+x&#39; &amp;= r \cos{(\phi + \theta)}\\
+   &amp;= (r\cos{\phi})\cos{\theta} - (r\sin{\theta})\sin{\theta}\\
+   &amp;= \cos{\theta}x - \sin{\theta}y\\
+y&#39; &amp;= r \sin{(\phi + \theta)}\\
+   &amp;= (r\sin{\phi})\cos{\theta} + (r\cos{\phi})\sin{\phi}\\
+   &amp;= \cos{\theta}y + \sin{\phi}x
+\end{align}\]</span></p>
+<p><span class="math display">\[\begin{pmatrix}
+\cos{\theta} &amp; -\sin{\theta}\\
+\sin{\theta} &amp; \cos{\theta}\\
+\end{pmatrix} \begin{pmatrix}
+x\\
+y\\
+\end{pmatrix} = \begin{pmatrix}
+x&#39;\\
+y&#39;\\
+\end{pmatrix}\]</span></p>
+<h1 id="systems-of-linear-equations">Systems of Linear Equations</h1>
+<h1 id="vector-spaces">Vector Spaces</h1>
+<h1 id="eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</h1>
+<h1 id="references">References</h1>
+<p>Coursera: <em>Matrix Algebra for Engineers</em>. Chasnov</p>
+            </div>
+    </div>
+  </div>
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

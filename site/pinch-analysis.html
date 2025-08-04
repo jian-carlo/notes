@@ -1,0 +1,160 @@
+<!doctype html>
+<html >
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+  
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+        
+  
+    <!-- <script src="script.js"></script> -->
+  
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/ryangrose/easy-pandoc-templates@948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/script.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+  <title>Pinch Analysis</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+    
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">Pinch Analysis</span>
+        <ul class="nav pull-right doc-info">
+                            </ul>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+    <div class="row">
+            <div id="TOC" class="span3">
+        <div class="well toc">
+
+        <ul>
+        <li><a href="#from-wikipedia1" id="toc-from-wikipedia1">From
+        Wikipedia:</a></li>
+        <li><a href="#from-lecture-material-in-university-of-oklahoma2"
+        id="toc-from-lecture-material-in-university-of-oklahoma2">From
+        Lecture Material in University of Oklahoma</a></li>
+        </ul>
+
+        </div>
+      </div>
+            <div class="span9">
+
+      
+      <p><a href="index.html">to index</a></p>
+<h1 id="from-wikipedia1">From <a
+href="https://en.wikipedia.org/wiki/Pinch_analysis">Wikipedia:</a></h1>
+<p><strong>Pinch analysis</strong> is examining the composite curve and
+optimizing the utility costs and heat exchanger costs based on this
+curve.</p>
+<p>The <em>composite curve</em> is the graph of the temperature versus
+heat load of all hot streams and cold streams, separate lines for
+each.</p>
+<p>The <em>pinch point</em> is the temperature at which the two lines
+are at their nearest, or at the lowest <code>Delta T.</code></p>
+<h1 id="from-lecture-material-in-university-of-oklahoma2">From <a
+href="https://www.ou.edu/class/che-design/che5480-13/PINCH%20ANALYSIS%20Part%201-%20Pinch%20and%20Minimum%20Utility%20Usage.pdf">Lecture
+Material in University of Oklahoma</a></h1>
+<p>The slope of the T-H graph is the inverse of <span
+class="math inline">\(F C_P\)</span> where <span
+class="math inline">\(F\)</span> is the flowrate and <span
+class="math inline">\(C_P\)</span> is the heat capacity at constant
+pressure. This is from the equation of enthalpy:</p>
+<p><span class="math display">\[ \Delta H = F C_P \Delta T \]</span></p>
+<p>The overlap of the hot streams means that there are no heating or
+cooling just the heat exchanger. If the hot stream has the
+non-overlapping region then there is a cooling utility required, and the
+composite is also true which is the non- overlapping region of the hot
+stream. We can visualize these non-overlaps as heaters and coolers after
+heat transfer, hence the necessity for heating/cooling utilities.</p>
+<p>When there is a phase change, as the hot/cold stream changes to
+liquid/vapor, the T-H line deviates from a straight line. For a single
+component stream, the line becomes a complete horizontal line until it
+changes its phase. (constant temperature)</p>
+<p>A composite curve, is the combination of all hot streams or all cold
+streams, joining their lines. This might be confusing and needs
+visualization.</p>
+<p>Composite curves can be moved and it is by convention that the cold
+streams are moved. We move curves to lessen the heat of the cooling and
+heating utilities, but there is a compromise to this since the minimum
+<span class="math inline">\(\Delta T\)</span> would be too small and the
+area of the heat exchanger would be too large. (See Eq 1)</p>
+<p><span id="eq:qex-A"><span class="math display">\[ A = \frac{Q}{U
+\Delta T} \qquad{(1)}\]</span></span></p>
+<p>To limit this area, a <span class="math inline">\(\Delta
+T_{\text{minimum}}\)</span> is set, which is also called as HRAT. (Heat
+Recovery Approximation Temperature)</p>
+<p>A graphical procedure is listed in the <a
+href="https://www.ou.edu/class/che-design/che5480-13/PINCH%20ANALYSIS%20Part%201-%20Pinch%20and%20Minimum%20Utility%20Usage.pdf">lecture</a>:</p>
+<blockquote>
+<ul>
+<li>Fix HRAT</li>
+<li>Draw the hot composite curve and leave it fixed</li>
+<li>Draw the cold composite curve in such a way that the smallest
+temperature difference is equal to HRAT</li>
+<li>The temperature at which <span class="math inline">\(\Delta T =
+\text{HRAT}\)</span> is the PINCH</li>
+<li>The non-overlap on the right is the Minimum Heating Utility and the
+non-overlap on the left is the Minimum Cooling Utility</li>
+</ul>
+</blockquote>
+<p>Moving a graph visually is too cumbersome. A Problem Table is devised
+in the <a
+href="https://www.ou.edu/class/che-design/che5480-13/PINCH%20ANALYSIS%20Part%201-%20Pinch%20and%20Minimum%20Utility%20Usage.pdf">lecture</a>.</p>
+<blockquote>
+<ol type="1">
+<li>Divide the temperature range into intervals and shift the cold
+temperature scale (maybe the shift is equal to HRAT[?], the goal here is
+to lessen the interval I think.)</li>
+<li>Make a heat balance in each interval</li>
+<li>Cascade the heat surplus/deficit through the intervals.</li>
+<li>Add heat so that no deficit is cascaded</li>
+<li>The temperature at 0 heat is the pinch temperature</li>
+</ol>
+</blockquote>
+            </div>
+    </div>
+  </div>
+  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+</html>

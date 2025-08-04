@@ -1,10 +1,9 @@
 ---
-tags: [unfinished]
+title: Pinch Analysis
 ---
+[to index](index.html)
 
-# Pinch Analysis 
-
-## From [Wikipedia:][1]
+# From [Wikipedia:][1]
 
 **Pinch analysis** is examining the composite curve and optimizing the utility
 costs and heat exchanger costs based on this curve.
@@ -16,7 +15,7 @@ The *pinch point* is the temperature at which the two lines are at their
 nearest, or at the lowest `Delta T.`
 
 
-## From [Lecture Material in University of Oklahoma][2]
+# From [Lecture Material in University of Oklahoma][2]
 
 The slope of the T-H graph is the inverse of $F C_P$ where $F$ is the flowrate
 and $C_P$ is the heat capacity at constant pressure. This is from the equation

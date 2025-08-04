@@ -1,4 +1,7 @@
-# Index
+---
+title: Index
+---
 
-[[pinch-analysis.md]]
-[[bioethanol-production-plant.md]]
+# [Pinch Analysis](pinch-analysis.html)
+
+# [Matrix Algebra](matrix-algebra.html)

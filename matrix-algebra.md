@@ -1,4 +1,7 @@
-% Matrix Algebra
+---
+title: Matrix Algebra
+---
+[to index](index.html)
 
 # Matrices
 ## Definition of Matrices
