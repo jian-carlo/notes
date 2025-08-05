@@ -1,6 +1,7 @@
 ---
 title: Matrix Algebra
 ---
+
 [to index](index.html)
 
 # Matrices
@@ -435,7 +436,7 @@ $$ \begin{align}
 ### Rotation Matrices
 
 Suppose a vector, $v$, with elements $x$ and $y$ has an angle of $\phi$ above
-the x-axis. It is to be rotated such that it is at an angle of $\theta$ above
+the $x$-axis. It is to be rotated such that it is at an angle of $\theta$ above
 its initial angle. Its new elements are now $x'$ and $y'$ but it still has a
 length of $\norm{v}=r$. It is represented symbolically as in
 [@eq:vector_rotation]
@@ -470,6 +471,87 @@ y\\
 x'\\
 y'\\
 \end{pmatrix}$$
+
+The inverse of this rotation matrix rotates the vector counter-clockwise. This
+can be done by inverting $\theta$ to $-\theta$ resulting in
+[@eq:counter_rotation]. Notice that the inverse of a rotating matrix is also
+its transpose, signifying that it is an orthogonal matrix. Try to prove yourself
+that $\rm{R}(-\theta) = \rm{R}^{-1}(\theta)$.
+
+$$ \begin{gather}
+\rm{R}_\theta^{-1} = \begin{pmatrix}
+\cos{\theta} & \sin{\theta}\\
+-\sin{\theta} & \cos{\theta}\\
+\end{pmatrix}
+\end{gather} $$ {#eq:counter_rotation}
+
+For the rotation of a three-dimensional vector around the $z$-axis, the $z$
+coordinate stays fixed. Solving for the rotation matrix for an angle of $\theta$,
+
+$$ \begin{align}
+\rm{R}_z \begin{bmatrix}
+x\\
+y\\
+z\\
+\end{bmatrix} &= \begin{bmatrix}
+x'\\
+y'\\
+z'\\
+\end{bmatrix} \\
+\rm{R}_z &= \begin{bmatrix}
+\cos{\theta} & \sin{\theta} & 0\\
+-\sin{\theta} & \cos{\theta} & 0\\
+0 & 0 & 1\\
+\end{bmatrix}
+\end{align} $$
+
+### Permutation Matrices
+
+A **permutation** matrix _permutes_ the rows/columns of another
+matrix that it is multiplied to. See [@eq:permutation_2x2] and note that
+the values inside the braces are the indices of the rows or columns of
+that matrix. The equation tells us that there are only two permutations
+of a 2x2 matrix.
+
+$$ 2 \times 2: \qquad {1,2}, {2,1} $$ {@eq:permutation_2x2}
+
+The identity matrix is a permutation matrix:
+
+$$ \begin{pmatrix}
+0 & 1\\
+1 & 0\\
+\end{pmatrix} \begin{pmatrix}
+a & b\\
+c & d\\
+\end{pmatrix} = \begin{pmatrix}
+c & d\\
+a & b\\
+\end{pmatrix}\\
+\begin{pmatrix}
+a & b\\
+c & d\\
+\end{pmatrix} \begin{pmatrix}
+0 & 1\\
+1 & 0\\
+\end{pmatrix} = \begin{pmatrix}
+b & a\\
+d & c\\
+\end{pmatrix} $$    
+
+For a 3x3 matrix, the number of permutations is $3! = 6$:
+
+$$ \begin{align}
+3 \times 3:\\
+\{1,\,2,\,3\},\,& \{1,\,3,\,2\},\\ 
+\{2,\,1,\,3\},\,& \{2,\,3,\,1\},\\
+\{3,\,1,\,2\},\,& \{3,\,2,\,1\}
+\end{align} $$
+
+It does not matter whether the rows or columns are permutated.
+
+Work out the inverses of a three by three matrix with the un-permutated
+indices of {1, 2, 3}. You will find that only those matrices that are
+un-permutated and with only one permutation are their own inverses.
 
 # Systems of Linear Equations
 # Vector Spaces

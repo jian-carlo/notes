@@ -1,6 +1,7 @@
 ---
 title: Pinch Analysis
 ---
+
 [to index](index.html)
 
 # From [Wikipedia:][1]
@@ -67,5 +68,58 @@ Moving a graph visually is too cumbersome. A Problem Table is devised in the [le
 > 4. Add heat so that no deficit is cascaded
 > 5. The temperature at 0 heat is the pinch temperature
 
+# From [Technical University of Denmark][3]
+
+There are two types of heat sources, the _internal_ and _external_ sources. The
+internal sources are those that is from the process streams, and the external
+sources are from the utility streams such most commonly steam, and cold water.
+The most inefficient plant is one that only uses external sources as a means of
+bringing the streams to their desired temperatures. Internal energy sources can
+be added to this plant to minimize the required external energy. This is what
+adding heat exchangers to the plant does.
+
+## An Example
+
+:::{#tbl:given-table}
+| Process stream | Inlet Temp (°C)  | Outlet Temp (°C)  | Heat capacity rate (kW/K)  | Q̇ (kW)  |
+|:--------------:|:----------------:|:-----------------:|:--------------------------:|:-------:|
+| cold           |       90         |        420        |            10              |  3300   |
+| cold           |       170        |        350        |            32              |  5760   |
+| cold           |       200        |        390        |            29              |  5510   |
+| hot            |       440        |        140        |            27              |  8100   |
+| hot            |       510        |        300        |            24              |  5040   |
+:Caption Process streams in an industrial plant
+:::
+
+We can calculate the maximum heat required to heat all the cold streams
+($\dot{Q}_\text{heat}$) and to cool all the hot streams.
+($\dot{Q}_\text{cool}$)
+
+$$ \begin{align}
+\dot{Q} &= \sum_{i}^{~} \Delta T_i \cdot (\dot{m} C_P)_i \\
+\dot{Q}_\text{heat} &= 14570~\text{kW} \\
+\dot{Q}_\text{cool} &= 13140~\text{kW} \\
+\end{align} $$
+
+Now we separate the intervals.
+
+| Interval Id | Temperature Interval $[^\circ \rm{C}]$ | $\dot{Q}_\text{cool}$ $[\rm{kW}]$ | $\dot{Q}_\text{heat}$ $[\rm{kW}]$ | $\Delta \dot{Q}$ $[\rm{kW}]$ |
+|:-----------:|:--------------------------------------:|:---------------------------------:|:---------------------------------:|:-----------------------------:|
+| 1           | 510 - 440                              | 1680                              | 0                                 | 1680                          |
+| 2           | 440 - 400                              | 1020                              | 0                                 | 1020                          |
+| 3           | 400 - 390                              | 1530                              | 300                               | 1230                          |
+| 4           | 390 - 350                              | 2040                              | 1560                              | 480                           |
+| 5           | 350 - 300                              | 2550                              | 3550                              | -1000                         |
+| 6           | 300 - 200                              | 2700                              | 7100                              | -4400                         |
+| 7           | 200 - 170                              | 810                               | 1260                              | -450                          |
+| 8           | 170 - 140                              | 810                               | 300                               | 510                           |
+| 9           | 140 - 90                               | 0                                 | 500                               | -500                          |
+
+![](../images/pinch-analysis-intervals1.svg)
+
+Reference:**
+Rokni, M. (2016). Introduction to Pinch Technology. Technical University of Denmark.
+
 [1]: https://en.wikipedia.org/wiki/Pinch_analysis
 [2]: https://www.ou.edu/class/che-design/che5480-13/PINCH%20ANALYSIS%20Part%201-%20Pinch%20and%20Minimum%20Utility%20Usage.pdf
+[3]: https://orbit.dtu.dk/en/publications/introduction-to-pinch-technology
