@@ -1,114 +1,312 @@
-<!doctype html>
-<html >
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--[if lt IE 9]>
-                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <![endif]-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-
-    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
-
-    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
-
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
-    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
-    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
-
-    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
-  
-    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-        
-  
-    <!-- <script src="script.js"></script> -->
-  
-    <!-- <script src="jquery.sticky-kit.js "></script> -->
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.cookie.js'></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
-
-    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/ryangrose/easy-pandoc-templates@948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/script.js"></script>
-  
-    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/jquery.sticky-kit.js"></script>
-    <meta name="generator" content="pandoc" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Matrix Algebra</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+   
+  <!-- CSS added by filter 'toc-css.lua' for TOC hovering to the side -->
+  <style>
+  body {
+    padding-left: 1cm;
+    padding-right: 1cm;
+    transition: 0.5s;
+  }
+  nav {
+    width: 1em;
+    margin-left: -1cm;
+    font-size: smaller;
+    color: grey;
+    transition: 0.5s;
+    float: left;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: 0.5s;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+  nav a, nav a:visited {
+    color: grey;
+  }
+  nav h2:before {
+    content: "≡ ";
+    font-size: 150%;
+  }
+  nav h2:after {
+    content: " ◂";
+  }
+  nav li {
+    margin-left: 1em;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  nav li > a:not(:only-child):before {
+    content: "▸ ";
+  }
+  nav li > a:only-child {
+    margin-left: 0.75em;
+  }
+  nav li li {
+    margin-left: 1em;
+  }
+  nav li li li {
+    margin-left: 0.5em;
+    font-size: smaller;
+  }
+  nav ul li ul  {
+    visibility: hidden;
+    display: none;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    transition: 0.5s;
+  }
+  .paddingleft {
+    padding-left: 9cm;
+    transition: 0.5s;
+  }
+  .navside {
+    width: 7cm;
+    margin-left: -8.5cm;
+    padding-right: 1cm;
+    transition: 0.5s;
+  }
+  .navside h2:after {
+    content: " ▸";
+  }
+  .navshown {
+    width: 50%;
+    transition: 0.5s;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .subShow > ul {
+    visibility: visible;
+    display: block;
+    transition: 0.5s;
+    margin-left: -1em;
+  }
+  .subShow > a:not(:only-child):before {
+    content: "▾ ";
+  }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
 </head>
 <body>
-
-    
-    <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <span class="doc-title">Matrix Algebra</span>
-        <ul class="nav pull-right doc-info">
-                            </ul>
-      </div>
-    </div>
-  </div>
-    <div class="container">
-    <div class="row">
-            <div id="TOC" class="span3">
-        <div class="well toc">
-
-        <ul>
-        <li><a href="#matrices" id="toc-matrices">Matrices</a>
-        <ul>
-        <li><a href="#definition-of-matrices"
-        id="toc-definition-of-matrices">Definition of Matrices</a></li>
-        <li><a href="#adding-and-multiplying-matrices"
-        id="toc-adding-and-multiplying-matrices">Adding and Multiplying
-        Matrices</a></li>
-        <li><a href="#special-matrices"
-        id="toc-special-matrices">Special Matrices</a></li>
-        <li><a href="#matrix-transpose" id="toc-matrix-transpose">Matrix
-        Transpose</a></li>
-        <li><a href="#inner-outer-products"
-        id="toc-inner-outer-products">Inner &amp; Outer
-        Products</a></li>
-        <li><a href="#matrix-inverse" id="toc-matrix-inverse">Matrix
-        Inverse</a></li>
-        <li><a href="#orthogonal-matrices"
-        id="toc-orthogonal-matrices">Orthogonal Matrices</a>
-        <ul>
-        <li><a href="#rotation-matrices"
-        id="toc-rotation-matrices">Rotation Matrices</a></li>
-        </ul></li>
-        </ul></li>
-        <li><a href="#systems-of-linear-equations"
-        id="toc-systems-of-linear-equations">Systems of Linear
-        Equations</a></li>
-        <li><a href="#vector-spaces" id="toc-vector-spaces">Vector
-        Spaces</a></li>
-        <li><a href="#eigenvalues-and-eigenvectors"
-        id="toc-eigenvalues-and-eigenvectors">Eigenvalues and
-        Eigenvectors</a></li>
-        <li><a href="#references"
-        id="toc-references">References</a></li>
-        </ul>
-
-        </div>
-      </div>
-            <div class="span9">
-
-      
-      <p><a href="index.html">to index</a></p>
+<header id="title-block-header">
+<h1 class="title">Matrix Algebra</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Contents</h2>
+<ul>
+<li><a href="#matrices" id="toc-matrices">Matrices</a>
+<ul>
+<li><a href="#definition-of-matrices"
+id="toc-definition-of-matrices">Definition of Matrices</a></li>
+<li><a href="#adding-and-multiplying-matrices"
+id="toc-adding-and-multiplying-matrices">Adding and Multiplying
+Matrices</a></li>
+<li><a href="#special-matrices" id="toc-special-matrices">Special
+Matrices</a></li>
+<li><a href="#matrix-transpose" id="toc-matrix-transpose">Matrix
+Transpose</a></li>
+<li><a href="#inner-outer-products" id="toc-inner-outer-products">Inner
+&amp; Outer Products</a></li>
+<li><a href="#matrix-inverse" id="toc-matrix-inverse">Matrix
+Inverse</a></li>
+<li><a href="#orthogonal-matrices"
+id="toc-orthogonal-matrices">Orthogonal Matrices</a>
+<ul>
+<li><a href="#rotation-matrices" id="toc-rotation-matrices">Rotation
+Matrices</a></li>
+<li><a href="#permutation-matrices"
+id="toc-permutation-matrices">Permutation Matrices</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#systems-of-linear-equations"
+id="toc-systems-of-linear-equations">Systems of Linear Equations</a>
+<ul>
+<li><a href="#gaussian-elimination"
+id="toc-gaussian-elimination">Gaussian Elimination</a></li>
+</ul></li>
+<li><a href="#vector-spaces" id="toc-vector-spaces">Vector
+Spaces</a></li>
+<li><a href="#eigenvalues-and-eigenvectors"
+id="toc-eigenvalues-and-eigenvectors">Eigenvalues and
+Eigenvectors</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</nav>
+<p><a href="index.html">to index</a></p>
 <h1 id="matrices">Matrices</h1>
 <h2 id="definition-of-matrices">Definition of Matrices</h2>
 <p><strong>Matrices</strong> are a rectangular array of numbers,
@@ -543,10 +741,11 @@ matrix.</p>
 <p>Suppose a vector, <span class="math inline">\(v\)</span>, with
 elements <span class="math inline">\(x\)</span> and <span
 class="math inline">\(y\)</span> has an angle of <span
-class="math inline">\(\phi\)</span> above the x-axis. It is to be
-rotated such that it is at an angle of <span
-class="math inline">\(\theta\)</span> above its initial angle. Its new
-elements are now <span class="math inline">\(x&#39;\)</span> and <span
+class="math inline">\(\phi\)</span> above the <span
+class="math inline">\(x\)</span>-axis. It is to be rotated such that it
+is at an angle of <span class="math inline">\(\theta\)</span> above its
+initial angle. Its new elements are now <span
+class="math inline">\(x&#39;\)</span> and <span
 class="math inline">\(y&#39;\)</span> but it still has a length of <span
 class="math inline">\(\left\lVert v \right\rVert=r\)</span>. It is
 represented symbolically as in Eq 27</p>
@@ -578,15 +777,248 @@ y\\
 x&#39;\\
 y&#39;\\
 \end{pmatrix}\]</span></p>
+<p>The inverse of this rotation matrix rotates the vector
+counter-clockwise. This can be done by inverting <span
+class="math inline">\(\theta\)</span> to <span
+class="math inline">\(-\theta\)</span> resulting in Eq 28. Notice that
+the inverse of a rotating matrix is also its transpose, signifying that
+it is an orthogonal matrix. Try to prove yourself that <span
+class="math inline">\(\rm{R}(-\theta) =
+\rm{R}^{-1}(\theta)\)</span>.</p>
+<p><span id="eq:counter_rotation"><span class="math display">\[
+\begin{gather}
+\rm{R}_\theta^{-1} = \begin{pmatrix}
+\cos{\theta} &amp; \sin{\theta}\\
+-\sin{\theta} &amp; \cos{\theta}\\
+\end{pmatrix}
+\end{gather} \qquad{(28)}\]</span></span></p>
+<p>For the rotation of a three-dimensional vector around the <span
+class="math inline">\(z\)</span>-axis, the <span
+class="math inline">\(z\)</span> coordinate stays fixed. Solving for the
+rotation matrix for an angle of <span
+class="math inline">\(\theta\)</span>,</p>
+<p><span class="math display">\[ \begin{align}
+\rm{R}_z \begin{bmatrix}
+x\\
+y\\
+z\\
+\end{bmatrix} &amp;= \begin{bmatrix}
+x&#39;\\
+y&#39;\\
+z&#39;\\
+\end{bmatrix} \\
+\rm{R}_z &amp;= \begin{bmatrix}
+\cos{\theta} &amp; \sin{\theta} &amp; 0\\
+-\sin{\theta} &amp; \cos{\theta} &amp; 0\\
+0 &amp; 0 &amp; 1\\
+\end{bmatrix}
+\end{align} \]</span></p>
+<h3 id="permutation-matrices">Permutation Matrices</h3>
+<p>A <strong>permutation</strong> matrix <em>permutes</em> the
+rows/columns of another matrix that it is multiplied to. See Eq 29 and
+note that the values inside the braces are the indices of the rows or
+columns of that matrix. The equation tells us that there are only two
+permutations of a 2x2 matrix.</p>
+<p><span id="eq:permutation_2x2"><span class="math display">\[ 2 \times
+2: \qquad {1,2}, {2,1} \qquad{(29)}\]</span></span></p>
+<p>The identity matrix is a permutation matrix:</p>
+<p><span class="math display">\[ \begin{pmatrix}
+0 &amp; 1\\
+1 &amp; 0\\
+\end{pmatrix} \begin{pmatrix}
+a &amp; b\\
+c &amp; d\\
+\end{pmatrix} = \begin{pmatrix}
+c &amp; d\\
+a &amp; b\\
+\end{pmatrix}\\
+\begin{pmatrix}
+a &amp; b\\
+c &amp; d\\
+\end{pmatrix} \begin{pmatrix}
+0 &amp; 1\\
+1 &amp; 0\\
+\end{pmatrix} = \begin{pmatrix}
+b &amp; a\\
+d &amp; c\\
+\end{pmatrix} \]</span></p>
+<p>For a 3x3 matrix, the number of permutations is <span
+class="math inline">\(3! = 6\)</span>:</p>
+<p><span class="math display">\[ \begin{align}
+3 \times 3:\\
+\{1,\,2,\,3\},\,&amp; \{1,\,3,\,2\},\\
+\{2,\,1,\,3\},\,&amp; \{2,\,3,\,1\},\\
+\{3,\,1,\,2\},\,&amp; \{3,\,2,\,1\}
+\end{align} \]</span></p>
+<p>It does not matter whether the rows or columns are permutated.</p>
+<p>Work out the inverses of a three by three matrix with the
+un-permutated indices of <span class="math display">\[ {1, 2, 3}
+\]</span>. You will find that only those matrices that are un-permutated
+and with only one permutation are their own inverses.</p>
+<p>An example matrix is: <span class="math display">\[ \begin{pmatrix}
+12 &amp; 3\\
+-9 &amp; 7\\
+\end{pmatrix} \]</span> The determinant can that I calculated was 65,
+therefore the matrix is invertible.</p>
 <h1 id="systems-of-linear-equations">Systems of Linear Equations</h1>
+<h2 id="gaussian-elimination">Gaussian Elimination</h2>
+<p>Consider we have a system of linear equations with three equations
+and three unknowns as in Eq 30. We can rewrite this system into matrices
+as in Eq 31, and can be written symbolically as in Eq 32.</p>
+<p><span id="eq:ex_gauss"><span class="math display">\[ \begin{align}
+-3 x_1 + 2 x_2 - x_3 &amp;= 1 \\
+6 x_1 -6 x_2 + 7 x_3 &amp;= -7 \\
+3 x_1 - 4 x_2 + 4 x_3 &amp;= -6
+\end{align} \qquad{(30)}\]</span></span></p>
+<p><span id="eq:matf_gauss"><span class="math display">\[ \begin{gather}
+\begin{pmatrix}
+-3 &amp; 2 &amp; -1\\
+6 &amp; -6 &amp; 7\\
+3 &amp; -4 &amp; 4\\
+\end{pmatrix} \begin{pmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{pmatrix} = \begin{pmatrix}
+1\\
+-7\\
+-6\\
+\end{pmatrix}
+\end{gather} \qquad{(31)}\]</span></span></p>
+<p><span id="eq:sym_gauss"><span class="math display">\[ Ax = b
+\qquad{(32)}\]</span></span></p>
+<p>To do <em>Gaussian Elimination</em>, we must first construct the
+<em>augmented matrix</em> which is done by appending the elements of
+<span class="math inline">\(b\)</span> as a column in <span
+class="math inline">\(A\)</span>. See Eq 33</p>
+<p><span id="eq:augmented_mat"><span class="math display">\[
+\begin{pmatrix}
+-3 &amp; 2 &amp; -1 &amp; -1\\
+6 &amp; -6 &amp; 7 &amp; -7\\
+3 &amp; -4 &amp; 4 &amp; -6\\
+\end{pmatrix} \qquad{(33)}\]</span></span></p>
+<p>The goal of <em>Gaussian Elimination</em> is to produce an upper
+triangular matrix from this <em>augmented matrix</em>. Three operations
+can be done in order to preserve the solution of the system, first is to
+multiply a row by a constant, second is to interchange the order of the
+rows, and last is to add the elements of one row to another row. See the
+following solution:</p>
+<p><span class="math display">\[ \begin{gather}
+\begin{pmatrix}
+-3 &amp; 2 &amp; -1 &amp; -1\\
+0 &amp; -2 &amp; 5 &amp; -9\\
+0 &amp; -2 &amp; 3 &amp; -7\\
+\end{pmatrix}
+\end{gather} \]</span></p>
+<p>Here, we chose the <em>pivot-position</em> to be the element -3. We
+multiply the first row by a factor of 2 and added it to the second row
+to zero the element below the <em>pivot-position</em>. We also added the
+first row (without any scaling) to the third row to zero its first
+element as well. Notice that the <em>pivot-position</em> does not
+change.</p>
+<p><span class="math display">\[ \begin{gather}
+\begin{pmatrix}
+-3 &amp; 2 &amp; -1 &amp; -1\\
+0 &amp; -2 &amp; 5 &amp; -9\\
+0 &amp; 0 &amp; -2 &amp; 2\\
+\end{pmatrix}
+\end{gather} \]</span></p>
+<p>Here, we chose the pivot point to be the second element of the second
+row, which is -2. Then we multiplied the second row with -1 and added it
+to the third row to make its second row zero.</p>
+<p>Now that the <em>augmented matrix</em> has become an upper triangular
+matrix, the resulting system of equations can easily be solved by back
+subsitution:</p>
+<p><span class="math display">\[ \begin{align}
+-3 x_1 + 2 x_2 - x_3 &amp;= -1 \\
+-2 x_2 + 5 x_3 &amp;= -9 \\
+-2 x_3 &amp;= 2
+\end{align} \]</span></p>
+<p><span class="math display">\[ \begin{align}
+x_3 &amp;= -1 \\
+x_2 &amp;= -\frac{1}{2}(-5 x_3 - 9) = 2 \\
+x_1 &amp;= -\frac{1}{3}(-1 -2 x_2 + x_3) = 2
+\end{align} \]</span></p>
+<p>In the <em>augmented matrix</em> the pivot point cannot be zero.
+Interchange the rows to make it non-zero.</p>
 <h1 id="vector-spaces">Vector Spaces</h1>
 <h1 id="eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</h1>
 <h1 id="references">References</h1>
 <p>Coursera: <em>Matrix Algebra for Engineers</em>. Chasnov</p>
-            </div>
-    </div>
-  </div>
-  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
 
+<!-- Javascript added by toc-css.lua to make TOC expandable on click -->
+<script>
+
+  const b = document.querySelector("body");
+  const n = document.querySelector("nav");
+  const buttonsize = 20;
+
+  // click on "toc-title" to show TOC to the side
+  document.querySelector("#toc-title").addEventListener("click", function(e) {
+    if (e.clientX < e.currentTarget.getBoundingClientRect().left + buttonsize) {
+      n.classList.toggle("navshown");
+    } else {
+      b.classList.toggle("paddingleft");
+      n.classList.toggle("navside");
+      n.classList.remove("navshown");
+    };
+  });
+
+  // by default show TOC in large window
+  window.onload = function() {
+    if (window.innerWidth > 1000) {
+      b.classList.add("paddingleft");
+      n.classList.add("navside");
+    };
+  };
+
+  // show/hide TOC on resize
+  window.onresize = function () {
+    if (window.innerWidth > 1000) {
+      b.classList.add("paddingleft");
+      n.classList.add("navside");
+    } else {
+      b.classList.remove("paddingleft");
+      n.classList.remove("navside");
+    };
+  };
+
+  // show/hide subsections
+  const allLis = document.querySelectorAll("nav li");
+
+  for (const li of allLis) {
+    li.addEventListener('click', function (e) {
+      if (e.clientX < e.currentTarget.getBoundingClientRect().left + buttonsize) {
+        li.classList.toggle('subShow');
+        e.preventDefault();
+      };
+      if (e.clientX > e.currentTarget.getBoundingClientRect().left + 3*buttonsize) {
+        n.classList.remove("navshown");
+      };
+    });
+  };
+
+  // show full nav on tab, hide full nav on escape
+  document.addEventListener("keydown", function (e) {
+    if (e.which === 27) {
+      n.classList.remove("navshown");
+      e.preventDefault();
+    };
+    if (e.which === 9) {
+      n.classList.add("navshown");
+      e.preventDefault();
+    };
+  });
+
+  // hide full nav when clicked outside
+  document.addEventListener("click", function(e) {
+    if (n.classList.contains("navshown")) {
+      if (!n.contains(e.target)) {
+        n.classList.remove("navshown");
+      };
+    };
+  });
+
+</script>
 </body>
 </html>

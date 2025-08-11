@@ -1,92 +1,287 @@
-<!doctype html>
-<html >
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!--[if lt IE 9]>
-                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <![endif]-->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-
-    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
-
-    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
-
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
-    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
-    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
-
-    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
-  
-    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-        
-  
-    <!-- <script src="script.js"></script> -->
-  
-    <!-- <script src="jquery.sticky-kit.js "></script> -->
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.cookie.js'></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
-
-    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/blue.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/graphite.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/grey.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/ryangrose/easy-pandoc-templates@948e28e5/css/elegant_bootstrap.css" rel="stylesheet" type="text/css" />
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/script.js"></script>
-  
-    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/jquery.sticky-kit.js"></script>
-    <meta name="generator" content="pandoc" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Pinch Analysis</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+   
+  <!-- CSS added by filter 'toc-css.lua' for TOC hovering to the side -->
+  <style>
+  body {
+    padding-left: 1cm;
+    padding-right: 1cm;
+    transition: 0.5s;
+  }
+  nav {
+    width: 1em;
+    margin-left: -1cm;
+    font-size: smaller;
+    color: grey;
+    transition: 0.5s;
+    float: left;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: 0.5s;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+  nav a, nav a:visited {
+    color: grey;
+  }
+  nav h2:before {
+    content: "≡ ";
+    font-size: 150%;
+  }
+  nav h2:after {
+    content: " ◂";
+  }
+  nav li {
+    margin-left: 1em;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  nav li > a:not(:only-child):before {
+    content: "▸ ";
+  }
+  nav li > a:only-child {
+    margin-left: 0.75em;
+  }
+  nav li li {
+    margin-left: 1em;
+  }
+  nav li li li {
+    margin-left: 0.5em;
+    font-size: smaller;
+  }
+  nav ul li ul  {
+    visibility: hidden;
+    display: none;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    transition: 0.5s;
+  }
+  .paddingleft {
+    padding-left: 9cm;
+    transition: 0.5s;
+  }
+  .navside {
+    width: 7cm;
+    margin-left: -8.5cm;
+    padding-right: 1cm;
+    transition: 0.5s;
+  }
+  .navside h2:after {
+    content: " ▸";
+  }
+  .navshown {
+    width: 50%;
+    transition: 0.5s;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .subShow > ul {
+    visibility: visible;
+    display: block;
+    transition: 0.5s;
+    margin-left: -1em;
+  }
+  .subShow > a:not(:only-child):before {
+    content: "▾ ";
+  }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
 </head>
 <body>
-
-    
-    <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <span class="doc-title">Pinch Analysis</span>
-        <ul class="nav pull-right doc-info">
-                            </ul>
-      </div>
-    </div>
-  </div>
-    <div class="container">
-    <div class="row">
-            <div id="TOC" class="span3">
-        <div class="well toc">
-
-        <ul>
-        <li><a href="#from-wikipedia1" id="toc-from-wikipedia1">From
-        Wikipedia:</a></li>
-        <li><a href="#from-lecture-material-in-university-of-oklahoma2"
-        id="toc-from-lecture-material-in-university-of-oklahoma2">From
-        Lecture Material in University of Oklahoma</a></li>
-        <li><a href="#from-technical-university-of-denmark3"
-        id="toc-from-technical-university-of-denmark3">From Technical
-        University of Denmark</a>
-        <ul>
-        <li><a href="#an-example" id="toc-an-example">An
-        Example</a></li>
-        </ul></li>
-        </ul>
-
-        </div>
-      </div>
-            <div class="span9">
-
-      
-      <p><a href="index.html">to index</a></p>
+<header id="title-block-header">
+<h1 class="title">Pinch Analysis</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Contents</h2>
+<ul>
+<li><a href="#from-wikipedia1" id="toc-from-wikipedia1">From
+Wikipedia:</a></li>
+<li><a href="#from-lecture-material-in-university-of-oklahoma2"
+id="toc-from-lecture-material-in-university-of-oklahoma2">From Lecture
+Material in University of Oklahoma</a></li>
+<li><a href="#from-technical-university-of-denmark3"
+id="toc-from-technical-university-of-denmark3">From Technical University
+of Denmark</a>
+<ul>
+<li><a href="#an-example" id="toc-an-example">An Example</a></li>
+</ul></li>
+</ul>
+</nav>
+<p><a href="index.html">to index</a></p>
 <h1 id="from-wikipedia1">From <a
 href="https://en.wikipedia.org/wiki/Pinch_analysis">Wikipedia:</a></h1>
 <p><strong>Pinch analysis</strong> is examining the composite curve and
@@ -181,7 +376,7 @@ plant</caption>
 <col style="width: 10%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th style="text-align: center;">Process stream</th>
 <th style="text-align: center;">Inlet Temp (°C)</th>
 <th style="text-align: center;">Outlet Temp (°C)</th>
@@ -190,35 +385,35 @@ plant</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">cold</td>
 <td style="text-align: center;">90</td>
 <td style="text-align: center;">420</td>
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">3300</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">cold</td>
 <td style="text-align: center;">170</td>
 <td style="text-align: center;">350</td>
 <td style="text-align: center;">32</td>
 <td style="text-align: center;">5760</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">cold</td>
 <td style="text-align: center;">200</td>
 <td style="text-align: center;">390</td>
 <td style="text-align: center;">29</td>
 <td style="text-align: center;">5510</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">hot</td>
 <td style="text-align: center;">440</td>
 <td style="text-align: center;">140</td>
 <td style="text-align: center;">27</td>
 <td style="text-align: center;">8100</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">hot</td>
 <td style="text-align: center;">510</td>
 <td style="text-align: center;">300</td>
@@ -247,7 +442,7 @@ class="math inline">\(\dot{Q}_\text{cool}\)</span>)</p>
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th style="text-align: center;">Interval Id</th>
 <th style="text-align: center;">Temperature Interval <span
 class="math inline">\([^\circ \rm{C}]\)</span></th>
@@ -262,63 +457,63 @@ class="math inline">\([\rm{kW}]\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">510 - 440</td>
 <td style="text-align: center;">1680</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1680</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">440 - 400</td>
 <td style="text-align: center;">1020</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1020</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">3</td>
 <td style="text-align: center;">400 - 390</td>
 <td style="text-align: center;">1530</td>
 <td style="text-align: center;">300</td>
 <td style="text-align: center;">1230</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">390 - 350</td>
 <td style="text-align: center;">2040</td>
 <td style="text-align: center;">1560</td>
 <td style="text-align: center;">480</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">350 - 300</td>
 <td style="text-align: center;">2550</td>
 <td style="text-align: center;">3550</td>
 <td style="text-align: center;">-1000</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">6</td>
 <td style="text-align: center;">300 - 200</td>
 <td style="text-align: center;">2700</td>
 <td style="text-align: center;">7100</td>
 <td style="text-align: center;">-4400</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">200 - 170</td>
 <td style="text-align: center;">810</td>
 <td style="text-align: center;">1260</td>
 <td style="text-align: center;">-450</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: center;">8</td>
 <td style="text-align: center;">170 - 140</td>
 <td style="text-align: center;">810</td>
 <td style="text-align: center;">300</td>
 <td style="text-align: center;">510</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: center;">9</td>
 <td style="text-align: center;">140 - 90</td>
 <td style="text-align: center;">0</td>
@@ -330,10 +525,80 @@ class="math inline">\([\rm{kW}]\)</span></th>
 <p><img src="../images/pinch-analysis-intervals1.svg" /></p>
 <p>Reference:** Rokni, M. (2016). Introduction to Pinch Technology.
 Technical University of Denmark.</p>
-            </div>
-    </div>
-  </div>
-  <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
 
+<!-- Javascript added by toc-css.lua to make TOC expandable on click -->
+<script>
+
+  const b = document.querySelector("body");
+  const n = document.querySelector("nav");
+  const buttonsize = 20;
+
+  // click on "toc-title" to show TOC to the side
+  document.querySelector("#toc-title").addEventListener("click", function(e) {
+    if (e.clientX < e.currentTarget.getBoundingClientRect().left + buttonsize) {
+      n.classList.toggle("navshown");
+    } else {
+      b.classList.toggle("paddingleft");
+      n.classList.toggle("navside");
+      n.classList.remove("navshown");
+    };
+  });
+
+  // by default show TOC in large window
+  window.onload = function() {
+    if (window.innerWidth > 1000) {
+      b.classList.add("paddingleft");
+      n.classList.add("navside");
+    };
+  };
+
+  // show/hide TOC on resize
+  window.onresize = function () {
+    if (window.innerWidth > 1000) {
+      b.classList.add("paddingleft");
+      n.classList.add("navside");
+    } else {
+      b.classList.remove("paddingleft");
+      n.classList.remove("navside");
+    };
+  };
+
+  // show/hide subsections
+  const allLis = document.querySelectorAll("nav li");
+
+  for (const li of allLis) {
+    li.addEventListener('click', function (e) {
+      if (e.clientX < e.currentTarget.getBoundingClientRect().left + buttonsize) {
+        li.classList.toggle('subShow');
+        e.preventDefault();
+      };
+      if (e.clientX > e.currentTarget.getBoundingClientRect().left + 3*buttonsize) {
+        n.classList.remove("navshown");
+      };
+    });
+  };
+
+  // show full nav on tab, hide full nav on escape
+  document.addEventListener("keydown", function (e) {
+    if (e.which === 27) {
+      n.classList.remove("navshown");
+      e.preventDefault();
+    };
+    if (e.which === 9) {
+      n.classList.add("navshown");
+      e.preventDefault();
+    };
+  });
+
+  // hide full nav when clicked outside
+  document.addEventListener("click", function(e) {
+    if (n.classList.contains("navshown")) {
+      if (!n.contains(e.target)) {
+        n.classList.remove("navshown");
+      };
+    };
+  });
+
+</script>
 </body>
 </html>

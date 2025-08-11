@@ -513,7 +513,7 @@ the values inside the braces are the indices of the rows or columns of
 that matrix. The equation tells us that there are only two permutations
 of a 2x2 matrix.
 
-$$ 2 \times 2: \qquad {1,2}, {2,1} $$ {@eq:permutation_2x2}
+$$ 2 \times 2: \qquad {1,2}, {2,1} $$ {#eq:permutation_2x2}
 
 The identity matrix is a permutation matrix:
 
@@ -550,10 +550,110 @@ $$ \begin{align}
 It does not matter whether the rows or columns are permutated.
 
 Work out the inverses of a three by three matrix with the un-permutated
-indices of {1, 2, 3}. You will find that only those matrices that are
+indices of 
+$$ {1, 2, 3} $$.
+You will find that only those matrices that are
 un-permutated and with only one permutation are their own inverses.
 
+An example matrix is:
+$$ \begin{pmatrix}
+12 & 3\\
+-9 & 7\\
+\end{pmatrix} $$
+The determinant can that I calculated was 65, therefore the matrix is invertible.
+
 # Systems of Linear Equations
+
+## Gaussian Elimination
+
+Consider we have a system of linear equations with three equations and three
+unknowns as in [@eq:ex_gauss]. We can rewrite this system into matrices as in
+[@eq:matf_gauss], and can be written symbolically as in [@eq:sym_gauss].
+
+$$ \begin{align}
+-3 x_1 + 2 x_2 - x_3 &= 1 \\
+6 x_1 -6 x_2 + 7 x_3 &= -7 \\
+3 x_1 - 4 x_2 + 4 x_3 &= -6
+\end{align} $$ {#eq:ex_gauss}
+
+$$ \begin{gather}
+\begin{pmatrix}
+-3 & 2 & -1\\
+6 & -6 & 7\\
+3 & -4 & 4\\
+\end{pmatrix} \begin{pmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{pmatrix} = \begin{pmatrix}
+1\\
+-7\\
+-6\\
+\end{pmatrix}
+\end{gather} $$ {#eq:matf_gauss}
+
+$$ Ax = b $$ {#eq:sym_gauss}
+
+To do _Gaussian Elimination_, we must first construct the _augmented matrix_
+which is done by appending the elements of $b$ as a column in $A$. See
+[@eq:augmented_mat]
+
+$$ \begin{pmatrix}
+-3 & 2 & -1 & -1\\
+6 & -6 & 7 & -7\\
+3 & -4 & 4 & -6\\
+\end{pmatrix} $$ {#eq:augmented_mat}
+
+The goal of _Gaussian Elimination_ is to produce an upper triangular matrix
+from this _augmented matrix_. Three operations can be done in order to preserve
+the solution of the system, first is to multiply a row by a constant, second is
+to interchange the order of the rows, and last is to add the elements of one
+row to another row. See the following solution: 
+
+$$ \begin{gather}
+\begin{pmatrix}
+-3 & 2 & -1 & -1\\
+0 & -2 & 5 & -9\\
+0 & -2 & 3 & -7\\
+\end{pmatrix}
+\end{gather} $$
+
+Here, we chose the _pivot-position_ to be the element -3. We multiply the first
+row by a factor of 2 and added it to the second row to zero the element below
+the _pivot-position_. We also added the first row (without any scaling) to the
+third row to zero its first element as well. Notice that the _pivot-position_
+does not change.
+
+$$ \begin{gather}
+\begin{pmatrix}
+-3 & 2 & -1 & -1\\
+0 & -2 & 5 & -9\\
+0 & 0 & -2 & 2\\
+\end{pmatrix}
+\end{gather} $$
+
+Here, we chose the pivot point to be the second element of the second row,
+which is -2. Then we multiplied the second row with -1 and added it to the
+third row to make its second row zero.
+
+Now that the _augmented matrix_ has become an upper triangular matrix, the
+resulting system of equations can easily be solved by back subsitution:
+
+$$ \begin{align}
+-3 x_1 + 2 x_2 - x_3 &= -1 \\
+-2 x_2 + 5 x_3 &= -9 \\
+-2 x_3 &= 2
+\end{align} $$
+
+$$ \begin{align}
+x_3 &= -1 \\
+x_2 &= -\frac{1}{2}(-5 x_3 - 9) = 2 \\
+x_1 &= -\frac{1}{3}(-1 -2 x_2 + x_3) = 2
+\end{align} $$
+
+In the _augmented matrix_ the pivot point cannot be zero. Interchange the rows
+to make it non-zero.
+
 # Vector Spaces
 # Eigenvalues and Eigenvectors
 # References
