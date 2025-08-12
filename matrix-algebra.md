@@ -787,5 +787,43 @@ M_3 &= \begin{pmatrix}
 \end{pmatrix} \\ M_3 M_2 M_1 A &= U
 \end{align} $$
 
+## LU Decomposition
+$$ \begin{align}
+M_3 M_2 M_1 A &= U \\
+M_1^{-1} M_2^{-1} M_3^{-1} M_3 M_2 M_1 A &= M_1^{-1} M_2^{-1} M_3^{-1} U \\
+A &= LU
+\end{align} $$
+
+From the previous example, we can determine the inverses of the elementary
+matrices. This is rather trivial as we can just inverse the sign of the
+non-diagonal entries of these matrices.
+
+$$ \begin{align}
+M_1^{-1} &= \begin{pmatrix}
+1 & 0 & 0\\
+-2 & 1 & 0\\
+0 & 0 & 1\\
+\end{pmatrix} \\
+M_2^{-1} &= \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+-1 & 0 & 1\\
+\end{pmatrix} \\
+M_3^{-1} &= \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 1 & 1\\
+\end{pmatrix}
+\end{align} $$
+
+The product of these matrices can also be determined trivially as putting
+putting elements in their corresponding place.
+
+$$ L = M_1^{-1} M_2^{-1} M_3^{-1} = \begin{pmatrix}
+1 & 0 & 0\\
+-2 & 1 & 0\\
+-1 & 1 & 0\\
+\end{pmatrix} $$
+
 # References
 Coursera: *Matrix Algebra for Engineers*. Chasnov
