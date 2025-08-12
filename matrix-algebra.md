@@ -6,7 +6,6 @@ title: Matrix Algebra
 
 # Matrices
 ## Definition of Matrices
-
 **Matrices** are a rectangular array of numbers, symbols, and/or expressions. Their
 dimensions are represented by $m \times n$ where $m$ is the number of rows and
 $n$ is the number of columns. [@eq:mat_def] is a matrix of dimensions $m \times n$.
@@ -48,7 +47,6 @@ $$ \rm{E} = \begin{pmatrix}
 \end{pmatrix} $$
 
 ## Adding and Multiplying Matrices
-
 **Adding** matrices is as easy as [@eq:add_mat]. The addends need to have the
 same dimensions.
 
@@ -110,7 +108,6 @@ $$ \begin{align}
 \end{align} $$
 
 ## Special Matrices
-
 * *Zero Matrix*: $m \times n$
 
 $$ 0 = \begin{pmatrix}
@@ -158,7 +155,6 @@ d & e & f
 \end{pmatrix} $$
 
 ## Matrix Transpose
-
 \newcommand{\tr}[1]{#1^{\rm{T}}}
 
 The transpose of a matrix is its reflection about the diagonal. If a matrix has
@@ -238,7 +234,6 @@ The resulting matrix of $\tr{\rm{A}}\rm{A}$ is symmetrical, as proven in
 $$ \tr{\left[\tr{\rm{A}}\rm{A}\right]} = \tr{\rm{A}}\rm{A} $$ {#eq:sym_trans}
 
 ## Inner & Outer Products
-
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\trace}[1]{\rm{Tr}\,#1}
 
@@ -329,7 +324,6 @@ $$ \begin{align}
 \end{align} $$ {#eq:proof_trace}
 
 ## Matrix Inverse
-
 \newcommand{\det}[1]{\rm{det} #1}
 
 Not all matrices are invertible. If $\rm{A}$ is invertible, then it's inverse is
@@ -406,7 +400,6 @@ $$ \det{\rm{A}} = ad - bc $$ {#eq:determinant}
 $$ \text{If det A}= 0,\,\text{then}\, \rm{A}^{-1} \,\text{does not exist.} $$
 
 ## Orthogonal Matrices
-
 The inverse of an orthogonal matrix is equal to its transpose.
 
 $$ \begin{gather}
@@ -563,9 +556,7 @@ $$ \begin{pmatrix}
 The determinant can that I calculated was 65, therefore the matrix is invertible.
 
 # Systems of Linear Equations
-
 ## Gaussian Elimination
-
 Consider we have a system of linear equations with three equations and three
 unknowns as in [@eq:ex_gauss]. We can rewrite this system into matrices as in
 [@eq:matf_gauss], and can be written symbolically as in [@eq:sym_gauss].
@@ -654,7 +645,147 @@ x_1 &= -\frac{1}{3}(-1 -2 x_2 + x_3) = 2
 In the _augmented matrix_ the pivot point cannot be zero. Interchange the rows
 to make it non-zero.
 
-# Vector Spaces
-# Eigenvalues and Eigenvectors
+## Reduced Row Echelon Form
+\newcommand{\rref}[1]{\rm{rref}(#1)}
+
+The _Reduced Row Echelon Form_ is a matrix where the first nonzero element
+of the rows is a 1 and the values above and below this element are zeroes. It is
+denoted as $\rref{A}$. Solving for the _Reduced Row Echelon Form_ of an example
+matrix.
+
+$$ A = \begin{pmatrix}
+1 & 2 & 3 & 4\\
+4 & 5 & 6 & 7\\
+6 & 7 & 8 & 9\\
+\end{pmatrix} \to \begin{pmatrix}
+1 & 2 & 3 & 4\\
+0 & -3 & -6 & -9\\
+0 & -5 & -10 & -15\\
+\end{pmatrix} \to \begin{pmatrix}
+1 & 2 & 3 & 4\\
+0 & 1 & 2 & 3\\
+0 & 1 & 2 & 3\\
+\end{pmatrix} \to \begin{pmatrix}
+1 & 0 & -1 & -2\\
+0 & 1 & 2 & 3\\
+0 & 0 & 0 & 0\\
+\end{pmatrix} = \rref{A} $$
+
+The resulting matrix only has two pivot points the columns in which they are located
+are called the _pivot columns_. In a _reduced row echelon form_, the pivots become 1.
+
+$$ B = \begin{pmatrix}
+3 & -7 & -2 & -7\\
+-3 & 5 & 1 & 5\\
+6 & -4 & 0 & 2\\
+\end{pmatrix} \to \begin{pmatrix}
+3 & -7 & -2 & -7\\
+0 & -2 & -1 & -2\\
+0 & 5 & 2 & 8\\
+\end{pmatrix} \to \begin{pmatrix}
+3 & 0 & 3/2 & 0\\
+0 & -2 & -1 & -2\\
+0 & 0 & -1 & 6\\
+\end{pmatrix} \to \begin{pmatrix}
+3 & 0 & 0 & 9\\
+0 & -2 & 0 & -8\\
+0 & 0 & -1 & 6\\
+\end{pmatrix} $$
+
+$$ \rref{B} = \begin{pmatrix}
+1 & 0 & 0 & 3\\
+0 & 1 & 0 & 4\\
+0 & 0 & 1 & -6\\
+\end{pmatrix} $$
+
+In the above example, there are three pivot columns.
+
+## Calculating Inverses
+One useful application of reduced row echelon forms is by calculating inverses.
+This can be done by creating an augmented matrix with the n by n identity
+matrix as the augmentor. This is based on the fact that when multiplying the
+rows of a matrix with the columns of its inverse, we get the columns of the 
+identity matrix, so we can solve these systems of linear equations to find the
+inverse of that matrix, see [@eq:inverse_ech]. Then we bring the $\rref{A}$ 
+to equal $I$ and the resulting matrix would be an augmentation of the identity
+matrix and the inverse of the original matrix.
+
+$$ \begin{gather}
+A A^{-1} = I \\
+A a_i^{-1} = e_i \\
+i \text{ pertains to the column index}
+\end{gather} $$ {#eq:inverse_ech}
+
+Below is an example:
+
+$$ \begin{align}
+A &= \begin{pmatrix}
+3 & -7 & -2\\
+-3 & 5 & 1\\
+6 & -4 & 0\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+3 & -7 & -2 & 1 & 0 & 0\\
+-3 & 5 & 1 & 0 & 1 & 0\\
+6 & -4 & 0 & 0 & 0 & 1\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+3 & -7 & -2 & 1 & 0 & 0\\
+0 & -2 & -1 & 1 & 1 & 0\\
+0 & 10 & 4 & -2 & 0 & 1\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+3 & 0 & 3/2 & -5/2 & -7/2 & 0\\
+0 & -2 & -1 & 1 & 1 & 0\\
+0 & 0 & -1 & 3 & 5 & 1\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+3 & 0 & 0 & 2 & 4 & 3/2\\
+0 & -2 & 0 & -2 & -4 & -1\\
+0 & 0 & -1 & 3 & 5 & 1\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+1 & 0 & 0 & 2/3 & 4/3 & 1/2\\
+0 & 1 & 0 & 1 & 2 & 1/2\\
+0 & 0 & 1 & -3 & -5 & -1\\
+\end{pmatrix}
+\end{align} $$
+
+## Elementary Matrices
+The method of Gaussian elimination can be represented as a series of
+multiplication steps to produce an upper triangular matrix. The multipliers
+to the original matrix are called _Elementary Matrices_. Below shows an
+example:
+
+$$ \begin{align}
+A &= \begin{pmatrix}
+-3 & 2 & -1\\
+6 & -6 & 7\\
+3 & -4 & 4\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+-3 & 2 & -1\\
+0 & -2 & 5\\
+3 & -4 & 4\\
+\end{pmatrix} = M_1 A \\
+M_1 &= \begin{pmatrix}
+1 & 0 & 0\\
+2 & 1 & 0\\
+0 & 0 & 1\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+-3 & 2 & -1\\
+0 & -2 & 5\\
+3 & -4 & 4\\
+\end{pmatrix} = M_2 M_1 A \\
+M_2 &= \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+1 & 0 & 1\\
+\end{pmatrix} \\ &\to \begin{pmatrix}
+-3 & -2 & -1\\
+0 & -2 & 5\\
+0 & 0 & -2\\
+\end{pmatrix} = M_3 M_2 M_1 A \\
+M_3 &= \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & -1 & 1\\
+\end{pmatrix} \\ M_3 M_2 M_1 A &= U
+\end{align} $$
+
 # References
 Coursera: *Matrix Algebra for Engineers*. Chasnov
