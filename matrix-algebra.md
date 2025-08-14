@@ -5,6 +5,7 @@ title: Matrix Algebra
 [to index](index.html)
 
 # Matrices
+
 ## Definition of Matrices
 **Matrices** are a rectangular array of numbers, symbols, and/or expressions. Their
 dimensions are represented by $m \times n$ where $m$ is the number of rows and
@@ -108,6 +109,7 @@ $$ \begin{align}
 \end{align} $$
 
 ## Special Matrices
+Some important types of matrices:
 * *Zero Matrix*: $m \times n$
 
 $$ 0 = \begin{pmatrix}
@@ -553,9 +555,11 @@ $$ \begin{pmatrix}
 12 & 3\\
 -9 & 7\\
 \end{pmatrix} $$
-The determinant can that I calculated was 65, therefore the matrix is invertible.
+
+The determinant is 65, therefore the matrix is invertible.
 
 # Systems of Linear Equations
+
 ## Gaussian Elimination
 Consider we have a system of linear equations with three equations and three
 unknowns as in [@eq:ex_gauss]. We can rewrite this system into matrices as in
@@ -824,6 +828,57 @@ $$ L = M_1^{-1} M_2^{-1} M_3^{-1} = \begin{pmatrix}
 -2 & 1 & 0\\
 -1 & 1 & 0\\
 \end{pmatrix} $$
+
+## Solving $(LU)x = b$
+Given the $LU$ Decomposition of a matrix $A$ we can solve for $LUx=b$.
+This method is much faster than Gaussian distribution, atleast for
+computers.
+
+$$ L = \begin{pmatrix}
+1 & 0 & 0\\
+-2 & 1 & 0\\
+-1 & 1 & 1\\
+\end{pmatrix} \qquad U = \begin{pmatrix}
+-3 & 2 & -1\\
+0 & -2 & 5\\
+0 & 0 & -2\\
+\end{pmatrix} \qquad b = \begin{pmatrix}
+-1\\
+-7\\
+-6\\
+\end{pmatrix} $$
+
+First we let $y=Ux$ and solve for y using $Ly = b$. Then solve for x using
+$Ux = y$. See the solution below:
+
+$$ \begin{align}
+Ly &= b \\
+y_1 &= -1 \\
+-2y_1 + y_2 &= -7 \\
+-y_1 + y_2 + y_3 &= -6 \\
+\begin{pmatrix}
+y_1\\
+y_2\\
+y_3\\
+\end{pmatrix} &= \begin{pmatrix}
+-1\\
+-9\\
+2\\
+\end{pmatrix} \\
+Ux &= y \\
+-3x_1 + 2x_2 - x_3 &= -1 \\
+-2x_2 + 5x_3 &= -9 \\
+-2x_3 &= 2 \\
+\begin{pmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{pmatrix} &= \begin{pmatrix}
+2\\
+2\\
+-1\\
+\end{pmatrix}
+\end{align} $$
 
 # References
 Coursera: *Matrix Algebra for Engineers*. Chasnov

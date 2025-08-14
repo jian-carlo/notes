@@ -305,6 +305,8 @@ id="toc-calculating-inverses">Calculating Inverses</a></li>
 id="toc-elementary-matrices">Elementary Matrices</a></li>
 <li><a href="#lu-decomposition" id="toc-lu-decomposition">LU
 Decomposition</a></li>
+<li><a href="#solving-lux-b" id="toc-solving-lux-b">Solving <span
+class="math inline">\((LU)x = b\)</span></a></li>
 </ul></li>
 <li><a href="#references" id="toc-references">References</a></li>
 </ul>
@@ -1112,6 +1114,57 @@ putting putting elements in their corresponding place.</p>
 -2 &amp; 1 &amp; 0\\
 -1 &amp; 1 &amp; 0\\
 \end{pmatrix} \]</span></p>
+<h2 id="solving-lux-b">Solving <span class="math inline">\((LU)x =
+b\)</span></h2>
+<p>Given the <span class="math inline">\(LU\)</span> Decomposition of a
+matrix <span class="math inline">\(A\)</span> we can solve for <span
+class="math inline">\(LUx=b\)</span>. This method is much faster than
+Gaussian distribution, atleast for computers.</p>
+<p><span class="math display">\[ L = \begin{pmatrix}
+1 &amp; 0 &amp; 0\\
+-2 &amp; 1 &amp; 0\\
+-1 &amp; 1 &amp; 1\\
+\end{pmatrix} \qquad U = \begin{pmatrix}
+-3 &amp; 2 &amp; -1\\
+0 &amp; -2 &amp; 5\\
+0 &amp; 0 &amp; -2\\
+\end{pmatrix} \qquad b = \begin{pmatrix}
+-1\\
+-7\\
+-6\\
+\end{pmatrix} \]</span></p>
+<p>First we let <span class="math inline">\(y=Ux\)</span> and solve for
+y using <span class="math inline">\(Ly = b\)</span>. Then solve for x
+using <span class="math inline">\(Ux = y\)</span>. See the solution
+below:</p>
+<p><span class="math display">\[ \begin{align}
+Ly &amp;= b \\
+y_1 &amp;= -1 \\
+-2y_1 + y_2 &amp;= -7 \\
+-y_1 + y_2 + y_3 &amp;= -6 \\
+\begin{pmatrix}
+y_1\\
+y_2\\
+y_3\\
+\end{pmatrix} &amp;= \begin{pmatrix}
+-1\\
+-9\\
+2\\
+\end{pmatrix} \\
+Ux &amp;= y \\
+-3x_1 + 2x_2 - x_3 &amp;= -1 \\
+-2x_2 + 5x_3 &amp;= -9 \\
+-2x_3 &amp;= 2 \\
+\begin{pmatrix}
+x_1\\
+x_2\\
+x_3\\
+\end{pmatrix} &amp;= \begin{pmatrix}
+2\\
+2\\
+-1\\
+\end{pmatrix}
+\end{align} \]</span></p>
 <h1 id="references">References</h1>
 <p>Coursera: <em>Matrix Algebra for Engineers</em>. Chasnov</p>
 
