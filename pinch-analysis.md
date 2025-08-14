@@ -115,9 +115,10 @@ Now we separate the intervals.
 | 8           | 170 - 140                              | 810                               | 300                               | 510                           |
 | 9           | 140 - 90                               | 0                                 | 500                               | -500                          |
 
-![](../images/pinch-analysis-intervals1.svg)
+![](images/pinch-analysis-intervals1.svg)
 
-Reference:**
+**Reference:**
+
 Rokni, M. (2016). Introduction to Pinch Technology. Technical University of Denmark.
 
 [1]: https://en.wikipedia.org/wiki/Pinch_analysis
