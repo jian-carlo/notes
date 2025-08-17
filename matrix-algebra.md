@@ -1,7 +1,6 @@
 ---
 title: Matrix Algebra
 ---
-
 [to index](index.html)
 
 # Matrices
