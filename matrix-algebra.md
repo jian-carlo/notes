@@ -674,8 +674,9 @@ $$ A = \begin{pmatrix}
 0 & 0 & 0 & 0\\
 \end{pmatrix} = \rref{A} $$
 
-The resulting matrix only has two pivot points the columns in which they are located
-are called the _pivot columns_. In a _reduced row echelon form_, the pivots become 1.
+The resulting matrix only has two pivot points the columns in which they are
+located are called the _pivot columns_. In a _reduced row echelon form_, the
+pivots become 1.
 
 $$ B = \begin{pmatrix}
 3 & -7 & -2 & -7\\
